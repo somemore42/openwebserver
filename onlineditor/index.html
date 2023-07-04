@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <title>T-senseEditor在线编辑器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./twitter-bootstrap/5.1.3/css/bootstrap.min.css"> 
+    <script src="./codemirror/5.40.2/codemirror.min.js"></script>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" >
+	<link rel="stylesheet" href="./codemirror/5.40.2/codemirror.min.css">
+	<script src="./codemirror/5.40.2/mode/htmlmixed/htmlmixed.min.js"></script>
+	<script src="./codemirror/5.40.2/mode/css/css.min.js"></script>
+	<script src="./codemirror/5.40.2/mode/javascript/javascript.min.js"></script>
+	<script src="./codemirror/5.40.2/mode/xml/xml.min.js"></script>
+	<script src="./codemirror/5.40.2/addon/edit/closetag.min.js"></script>
+	<script src="./codemirror/5.40.2/addon/edit/closebrackets.min.js"></script> 
+                <link href="./codemirror/common.css" rel="stylesheet" type="text/css" />
+    <script src="./split.js/1.6.5/split.min.js"></script>
+    <script src="./downloadjs/1.4.8/download.min.js"></script>
+<script>
+var closePrompt = '离开此编辑器会导致您的结果丢失。请做好保存工作。';
+	if (window.Event){
+		window.onbeforeunload = function(event) {
+			return closePrompt;
+		}
+	}else{
+		window.onbeforeunload = function() {
+			return closePrompt;
+		}
+	}
+</script>
+<style>
+body{background: #f6f6f6;}
+   .split {
+    display: flex;
+    flex-direction: row;
+}
+#iframeResult {
+  display: block;
+  height:100%;
+  width:100%;  
+}
+.gutter {
+    background-color: #f6f6f6;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}
+</style>
+</head>
+<body>
+<div class="topback" style="color:#ffffff;">
+<ul class="topleader">
+ <li><a>Tseditor 在线编辑器</a></li>
+  <li><a onclick="resetCode()">代码清零</a></li>
+  <li><a onclick="downloadCode()">保存代码</a></li>
+  <li><a onclick="submitTryit()" id="submitBTN">运行代码</a></li>
+<li style="float:right;cursor:default;"><a>今天是<script language="JavaScript">today=new Date();function initArray(){this.length=initArray.arguments.length;
+for(var i=0;i<this.length;i++){this[i+1]=initArray.arguments[i]}}
+var d=new initArray(" 星期日"," 星期一"," 星期二"," 星期三"," 星期四"," 星期五"," 星期六");document.write("<font> ",today.getFullYear(),"年",today.getMonth()+1,"月",today.getDate(),"日",d[today.getDay()+1],"</font>");</script>  欢迎登录！</a></li>
+</ul>
+</div>
+
+<div class="father">
+      <div class="container-fluid pb-3">
+        <div class="split">
+            <div id="split-0" class="bg-body rounded shadow-sm ">
+              <div class="card" >
+                <div style="min-height:30px;display:block;">&nbsp;</div>
+                <div class="card-body" style="padding:0">
+                  <textarea class="form-control" id="textareaCode" name="textareaCode">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5日出动画</title><style>
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+<canvas></canvas>
+<script>
+document.addEventListener("DOMContentLoaded", go);
+function go() {
+    "use strict";
+    let canvas = document.querySelector('canvas');
+    let ctx = canvas.getContext('2d');
+    canvas.style = 'width: 100%; height: 100%; object-fit:contain; background:#000;';
+    let frame = 0;
+    function onFrame() {
+        canvas.width = 512;
+        canvas.height = 256;
+        godraysCanvas.width = 128;
+        godraysCanvas.height = 64;
+        let sunY = Math.cos(frame++ / 512) * 24; // This is actually the offset from the middle of the canvas.
+        let godraysCtx = godraysCanvas.getContext('2d');
+        let emissionGradient = godraysCtx.createRadialGradient(
+            godraysCanvas.width / 2, godraysCanvas.height / 2 + sunY, // The sun's center.
+            0,                                                        // Start radius.
+            godraysCanvas.width / 2, godraysCanvas.height / 2 + sunY, // Sun's center again.
+            44                                                        // End radius.
+        );
+        godraysCtx.fillStyle = emissionGradient;
+        emissionGradient.addColorStop(.1, '#0C0804'); // Color for pixels in radius 0 to 4.4 (44 * .1).
+        emissionGradient.addColorStop(.2, '#060201'); // Color for everything past radius 8.8.
+        godraysCtx.fillRect(0, 0, godraysCanvas.width, godraysCanvas.height);
+        godraysCtx.fillStyle = '#000';
+        let skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        skyGradient.addColorStop(0, '#2a3e55'); // Blueish at the top.
+        skyGradient.addColorStop(.7, '#8d4835'); // Reddish at the bottom.
+        ctx.fillStyle = skyGradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        function mountainHeight(position, roughness) {
+            let frequencies = [1721, 947, 547, 233, 73, 31, 7];
+            return frequencies.reduce((height, freq) => height * roughness - Math.cos(freq * position), 0);
+        }
+        for(let i = 0; i < 4; i++) {
+            ctx.fillStyle = `hsl(7, 23%, ${23-i*6}%)`;
+            for(let x = canvas.width; x--;) {
+                let mountainPosition = (frame+frame*i*i) / 1000 + x / 2000;
+                let mountainRoughness = i / 19 - .5;
+                let y = 128 + i * 25 + mountainHeight(mountainPosition, mountainRoughness) * 45;
+                ctx.fillRect(x, y, 1, 999); // 999 can be any large number...
+                godraysCtx.fillRect(x/4, y/4+1, 1, 999);
+            }
+        }
+        ctx.globalCompositeOperation = godraysCtx.globalCompositeOperation = 'lighter';
+        for(let scaleFactor = 1.07; scaleFactor < 5; scaleFactor *= scaleFactor) {
+            godraysCtx.drawImage(
+                godraysCanvas,
+                (godraysCanvas.width - godraysCanvas.width * scaleFactor) / 2,
+                (godraysCanvas.height - godraysCanvas.height * scaleFactor) / 2 - sunY * scaleFactor + sunY,
+                godraysCanvas.width * scaleFactor,
+                godraysCanvas.height * scaleFactor
+            );
+        }
+        ctx.drawImage(godraysCanvas, 0, 0, canvas.width, canvas.height);
+        requestAnimationFrame(onFrame);
+    }
+    let godraysCanvas = canvas.cloneNode();
+    onFrame();
+    let encodedMelody = "!!----,*,(444420/20/-0/---,,--//((4444202/;;;;986986420/00--//,,";
+    let voiceBuffer = []; // M = [...]
+    let ksDelayBuffer = []; // Y = [...]
+    let sampleOffset = 0; // V = 0 (used later)
+    let J = 0; // What the hell is J????
+}
+
+</script>
+</body>
+</html></textarea>
+                </div>
+              </div>
+            </div>
+            <div id="split-1" class="bg-body rounded shadow-sm">
+              <div class="card">
+                <div class="card-header">
+                  <button type="button" class="btn btn-warning float-end"  id="framesize"></button>
+                </div>
+                <div class="card-body" >
+                  <div id="iframewrapper"></div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
+
+      
+
+<script>
+var mixedMode = {
+name: "htmlmixed",
+scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+               mode: null},
+              {matches: /(text|application)\/(x-)?vb(a|script)/i,
+               mode: "vbscript"}]
+};
+var editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+	mode: mixedMode,
+	selectionPointer: true,
+	lineNumbers: true,
+	matchBrackets: true,
+	indentUnit: 4,
+	indentWithTabs: true
+});
+
+window.addEventListener("resize", autodivheight);
+
+var x = 0;
+function autodivheight(){
+    var winHeight=0;
+    if (window.innerHeight) {
+        winHeight = window.innerHeight;
+    } else if ((document.body) && (document.body.clientHeight)) {
+        winHeight = document.body.clientHeight;
+    }
+    //通过深入Document内部对body进行检测，获取浏览器窗口高度
+    if (document.documentElement && document.documentElement.clientHeight) {
+        winHeight = document.documentElement.clientHeight;
+    }
+    height = winHeight*0.68 + 4
+    editor.setSize('100%', height+28); 
+    document.getElementById("iframeResult").style.height= height +"px";
+    showFrameSize();
+    
+}
+function resetCode() {
+  var initCode = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html lang=\"zh-CN\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\"/>\n  <title>新建HTML文档<\/title>\n  <meta name=\"keywords\" content=\"\"/>\n  <meta name=\"description\" content=\"\"/>\n  <meta name=\"renderer\" content=\"webkit\"/>\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"/>\n  <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\"/> \n  <meta name=\"apple-mobile-web-app-capable\" content=\"yes\"/>\n  <meta name=\"format-detection\" content=\"telephone=no\"/>\n  <meta HTTP-EQUIV=\"pragma\" CONTENT=\"no-cache\"/> \n  <meta HTTP-EQUIV=\"Cache-Control\" CONTENT=\"no-store, must-revalidate\"/> \n  <meta HTTP-EQUIV=\"expires\" CONTENT=\"Wed, 26 Feb 1997 08:21:57 GMT\"/>\n  <meta HTTP-EQUIV=\"expires\" CONTENT=\"0\"/>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"\"/>\n<script src=\"\"><\/script>\n<style><\/style>\n<\/head><body>\n\n<\/body><\/html>";
+  editor.getDoc().setValue(initCode);
+  submitTryit();
+}
+function submitTryit() {
+  var text = editor.getValue();
+  var patternHtml = /<html[^>]*>((.|[\n\r])*)<\/html>/im
+  var patternHead = /<head[^>]*>((.|[\n\r])*)<\/head>/im
+  var array_matches_head = patternHead.exec(text);
+  var patternBody = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
+  
+  var array_matches_body = patternBody.exec(text);
+  var basepath_flag = 1;
+  var basepath = '';
+  if(basepath_flag) {
+    basepath = '<base href="./" target="_blank">';
+  }
+  if(array_matches_head) {
+    text = text.replace('<head>', '<head>' + basepath );
+  } else if (patternHtml) {
+    text = text.replace('<html>', '<head>' + basepath + '</head>');
+  } else if (array_matches_body) {
+    text = text.replace('<body>', '<body>' + basepath );
+  } else {
+    text = basepath + text;
+  }
+  var ifr = document.createElement("iframe");
+  ifr.setAttribute("frameborder", "0");
+  ifr.setAttribute("id", "iframeResult");  
+  
+  document.getElementById("iframewrapper").innerHTML = "";
+  document.getElementById("iframewrapper").appendChild(ifr);
+ 
+  var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+  ifrw.document.open();
+  ifrw.document.write(text);  
+  ifrw.document.close();
+  autodivheight();
+}
+submitTryit();
+autodivheight();
+
+Split(['#split-0', '#split-1']);
+
+function runoob_getStyleValue(elmnt,style) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+    } else {
+        return elmnt.currentStyle[style];
+    }
+}
+function showFrameSize() {
+    var t;
+    var width, height;
+    width = Number(runoob_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
+    height = Number(runoob_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
+    document.getElementById("framesize").innerHTML = "尺寸: <span>" + width + " x " + height + "</span>";
+    
+}
+
+function downloadCode() {
+  download(editor.getValue(), "MyWebPage.html", "text/html");
+}
+function setCookie(cname,cvalue,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  var user=getCookie("username");
+  if (user != "") {} else {
+     user = prompt("请输入姓名：","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+checkCookie();
+</script>
+<div style="display:none;"></div>
+</body>
+</html>
