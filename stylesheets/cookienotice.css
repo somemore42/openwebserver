@@ -1,0 +1,29 @@
+@charset "UTF-8";
+:root{--input-border-heavy:#d3e1f6;--input-border-light:#d3e1f6}
+.u-bottomFixer{position:fixed;left:0;right:0;bottom:0;z-index:800;pointer-events:none}
+.notices .uix_noticeInner{display:flex}
+.u-bottomFixer>*{pointer-events:auto}
+.notices{list-style:none;margin:0;padding:0}
+.notice.notice--primary{color:#384764;background:#fff;border:2px solid #4080ff}
+.notice.notice--primary .uix_noticeIcon{background:#4080FF}
+.notices--floating .notice{font-size:1.1rem;border-radius:8px;box-shadow:0 4px 15px 0 rgb(88 106 153 / 20%)}
+.notices.notices--floating .notice{margin-bottom:20px}
+.notice{position:relative;border-width:0;border-style:solid;border-top-color:#d3e1f6;border-right-color:#d3e1f6;border-bottom-color:#d3e1f6;border-left-color:#d3e1f6;color:#384764;background:#fff;border:2px solid #d3e1f6}
+.notices .uix_noticeIcon{display:flex;align-items:center;padding:0 8px;color:rgba(255,255,255,0.5);font-size:24px}
+.notices.notices--floating{margin:0 auto 0 20px;width:300px;max-width:100%;z-index:9}
+.notice:before,.notice:after{content:" ";display:table}
+.notice:after{clear:both}
+.notice:before,.notice:after{content:" ";display:table}
+.notices--bottom_fixer .notice--cookie .notice-content{display:flex}
+.notice-content{padding:15px;flex-grow:1}
+.notices--bottom_fixer .notice--cookie .notice-content>div:first-child{flex-grow:1;justify-content:center;display:flex;flex-direction:column}
+.notices--bottom_fixer .notice--cookie .uix_cookieButtonRow{margin:0 -3px -3px 10px}
+.notices--bottom_fixer .notice--cookie .uix_cookieButtonRow .button{margin:3px}
+.button,button.button a.button{display:inline-block;border:1px solid transparent;-webkit-transition:background-color .1s ease,border-color .1s ease,color .1s ease;transition:background-color .1s ease,border-color .1s ease,color .1s ease;-webkit-transition:background-color .2s ease;transition:background-color .2s ease;font-size:15px;font-weight:400;border-radius:8px;padding-top:0;padding-right:15px;padding-bottom:0;padding-left:15px;text-align:center;outline:none;line-height:35px;height:35px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:content-box;-webkit-appearance:none;will-change:box-shadow;transition:all .3s cubic-bezier(.25,.8,.25,1);border:none;white-space:nowrap;border-radius:4px;color:#4080FF;text-decoration:none;background:rgba(64,128,255,0.1);border-color:rgba(23,101,255,0.1)}
+.button>.button-text,button.button a.button>.button-text{border-right:1px solid transparent}
+.button .button-text,button.button a.button .button-text{display:inline-flex;align-items:center}
+.button.button--icon--confirm>.button-text:before,button.button a.button.button--icon--confirm>.button-text:before{content:"^o^";display:inline-block;text-align:center}
+.button.button--icon>.button-text:before,button.button a.button.button--icon>.button-text:before,.button.button--icon>.fa--xf:before,button.button a.button.button--icon>.fa--xf:before,.button.button--icon .button-icon,button.button a.button.button--icon .button-icon{font-size:18px;vertical-align:-.1em;display:inline-block;margin-right:.2em}
+.button.button--icon>.button-text:before,button.button a.button.button--icon>.button-text:before,.button.button--icon .button-icon,button.button a.button.button--icon .button-icon{display:inline-block;font:normal normal normal 18px/1 "Material Design Icons";font-size:110%;font-weight:normal;line-height:inherit;width:auto}
+.far,.fa,.fas,.fab,.fal{display:inline-block;font:normal normal normal 18px/1 "Material Design Icons";font-size:inherit;text-rendering:auto;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transform:translate(0,0);width:auto}
+.fa-info-circle:before{content:">"}

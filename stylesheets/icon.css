@@ -1,0 +1,26 @@
+@charset "UTF-8";
+.icon_holescreen {
+	background: url('img/icon.png') no-repeat -20px -84px;
+	width: 9px;
+	height: 9px;
+}
+.icon_newwindow {
+	background: url('img/icon.png') no-repeat -52px -84px;
+	width: 9px;
+	height: 8px;
+}
+.icon_lable{
+	background: url('img/icon.png') no-repeat -243px -100px;
+	width: 10px;
+	height: 10px;
+}
+.icon_letter{
+	background: url('img/icon.png') no-repeat -83px -101px;
+	width: 10px;
+	height: 8px;
+}
+.icon_info{
+	background: url('img/icon.png') no-repeat -18px -146px;
+	width: 12px;
+	height: 12px;
+}
