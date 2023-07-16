@@ -1,0 +1,25 @@
+{
+    "name": "EWebServer",
+    "short_name": "EWebServer",
+    "description":"高效搭建http本地开发环境",
+    "start_url": "/index.html",
+    "theme_color":"#ffffff" , 
+    "background_color":"#ffffff" , 
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "http://127.0.0.1:2023/img/avatar.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        }
+    ],
+    "default_locale":"zh_CN",
+    "prefer_related_applications": true,
+    "related_applications": [
+        {
+            "platform": "play",
+            "url": "http://127.0.0.1:2023/EWebServer_v1.2.exe",
+            "id": "gov.tseditor.windows"
+        }
+    ]
+}
